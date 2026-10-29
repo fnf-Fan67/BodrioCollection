@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "name": "Bodrio Collection Extras",
+  "titleAsset": "storymenu/titles/extras",
+  "props": [
+    {
+      "assetPath": "storymenu/props/bf",
+      "scale": 1.0,
+      "danceEvery": 2,
+      "offsets": [150, 80],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "idle0",
+          "frameRate": 24
+        },
+        {
+          "name": "confirm",
+          "prefix": "confirm0",
+          "frameRate": 24
+        }
+      ]
+    }
+  ],
+  "background": "#51c9f98a",
+  "songs": ["meowl", "como-matar-a-tu-pou", "marcelo", "menea-tu-chapa", "tu-me-quieres", "my-mom-is-kinda-homless", "tienes-14", "groove-battle", "como-hace"]
+}

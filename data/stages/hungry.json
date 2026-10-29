@@ -1,0 +1,89 @@
+{
+ "version": "1.0.2",
+ "name": "Hungry",
+ "props": [
+  {
+   "alpha": 1,
+   "angle": 0,
+   "animType": "sparrow",
+   "animations": [],
+   "assetPath": "Stage/the-background-ever",
+   "atlasSettings": null,
+   "blend": "",
+   "color": "#FFFFFF",
+   "danceEvery": 0,
+   "flipX": false,
+   "flipY": false,
+   "isPixel": false,
+   "name": "bg",
+   "position": [-59, 22],
+   "scale": 1,
+   "scroll": [1, 1],
+   "startingAnimation": "",
+   "zIndex": 0
+  },
+  {
+   "alpha": 1,
+   "angle": 0,
+   "animType": "sparrow",
+   "animations": [
+    {
+
+        "offsets": [0, 0],
+        "flipY": false,
+        "frameRate": 24,
+        "prefix": "lightning thing",
+        "name": "idle",
+        "looped": true,
+        "flipX": false
+
+    }
+   ],
+   "assetPath": "Stage/cool_anime_thing",
+   "atlasSettings": null,
+   "blend": "",
+   "color": "#FFFFFF",
+   "danceEvery": 0,
+   "flipX": false,
+   "flipY": false,
+   "isPixel": false,
+   "name": "barrita",
+   "position": [479.5, 12.5],
+   "scale": 1,
+   "scroll": [1, 1],
+   "startingAnimation": "idle",
+   "zIndex": 3000
+  }
+ ],
+ "characters": {
+  "bf": {
+   "alpha": 1,
+   "angle": 0,
+   "cameraOffsets": [-200, -79],
+   "position": [974.5, 685],
+   "scale": 1,
+   "scroll": [1, 1],
+   "zIndex": 1
+  },
+  "dad": {
+   "alpha": 1,
+   "angle": 0,
+   "cameraOffsets": [349, -112],
+   "position": [338, 918],
+   "scale": 1,
+   "scroll": [1, 1],
+   "zIndex": 200
+  },
+  "gf": {
+   "alpha": 1,
+   "angle": 0,
+   "cameraOffsets": [0, 0],
+   "position": [751.5, 787],
+   "scale": 1,
+   "scroll": [1, 1],
+   "zIndex": 100
+  }
+ },
+ "cameraZoom": 1,
+ "directory": "shared"
+}

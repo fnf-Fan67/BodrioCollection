@@ -1,0 +1,33 @@
+import funkin.play.notes.notekind.NoteKind;
+
+import funkin.audio.FunkinSound;
+import funkin.play.PlayState;
+import funkin.play.notes.NoteSplash;
+import funkin.play.notes.Strumline;
+import funkin.play.notes.notekind.NoteKindManager;
+import funkin.data.notestyle.NoteStyleRegistry;
+
+import flixel.util.FlxTimer;
+import funkin.modding.events.HitNoteScriptEvent;
+
+class HeyNote extends NoteKind {
+    public function new(noteKind:String, description:String = "", ?noteStyleId:String, ?params:Array<NoteKindParam>) {
+        super("yay", "YAY Note", "funkin", []);
+    }
+
+    function onNoteHit(ev:HitNoteScriptEvent):Void {
+        super.onNoteHit(ev);
+
+        if (PlayState.instance == null) return;
+        if (!ev.note.noteData.getMustHitNote()) return;
+        if (ev.note.noteData.kind != "yay") return;
+
+        var player = PlayState.instance.currentStage.getBoyfriend();
+
+        // Delay 1 frame so it overrides default sing animation
+        new FlxTimer().start(0, function(_) {
+            // Try playing "hey" directly; it will just do nothing if it doesn’t exist
+            player.playAnimation("hey", true);
+        });
+    }
+}

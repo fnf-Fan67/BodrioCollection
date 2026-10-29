@@ -1,0 +1,360 @@
+{
+  "version": "1.0.2",
+  "name": "Main Stage [Erect] 2",
+  "props": [
+    {
+      "alpha": 0.5,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "#222026",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "solid",
+      "position": [
+        -500,
+        -1000
+      ],
+      "scale": [
+	2400,
+	2000
+],
+      "scroll": [
+        0,
+        0
+      ],
+      "startingAnimation": null,
+      "zIndex": 0
+    },
+    {
+      "alpha": 0.5,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [
+        {
+          "assetPath": null,
+          "flipX": false,
+          "flipY": false,
+          "frameIndices": [          ],
+          "frameRate": 12,
+          "looped": true,
+          "name": "idle",
+          "offsets": [
+            0,
+            0
+          ],
+          "prefix": "idle0"
+        }
+      ],
+      "assetPath": "erect/crowd",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "crowd",
+      "position": [
+        682,
+        290
+      ],
+      "scale": 1,
+      "scroll": [
+        0.8,
+        0.8
+      ],
+      "startingAnimation": "idle",
+      "zIndex": 5
+    },
+    {
+      "alpha": 0.5,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "erect/brightLightSmall",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "brightLightSmall",
+      "position": [
+        967,
+        -103
+      ],
+      "scale": 1,
+      "scroll": [
+        1.2,
+        1.2
+      ],
+      "startingAnimation": null,
+      "zIndex": 10
+    },
+    {
+      "alpha": 0.5,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "erect/bg",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "bg",
+      "position": [
+        -763,
+        -247
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "startingAnimation": null,
+      "zIndex": 20
+    },
+    {
+      "alpha": 0.5,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "erect/server",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "server",
+      "position": [
+        -991,
+        205
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "startingAnimation": null,
+      "zIndex": 30
+    },
+    {
+      "alpha": 1,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "erect/lightgreen",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "lightgreen",
+      "position": [
+        -171,
+        242
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "startingAnimation": null,
+      "zIndex": 40
+    },
+    {
+      "alpha": 1,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "erect/lightred",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "lightred",
+      "position": [
+        -101,
+        560
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "startingAnimation": null,
+      "zIndex": 40
+    },
+    {
+      "alpha": 0.5,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "erect/orangeLight",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "orangeLight",
+      "position": [
+        189,
+        -500
+      ],
+      "scale": [
+	1,
+	1700
+],
+      "scroll": [
+        1,
+        1
+      ],
+      "startingAnimation": null,
+      "zIndex": 80
+    },
+    {
+      "alpha": 0.5,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "erect/lights",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "lights",
+      "position": [
+        -847,
+        -245
+      ],
+      "scale": 1,
+      "scroll": [
+        1.2,
+        1.2
+      ],
+      "startingAnimation": null,
+      "zIndex": 4000
+    },
+    {
+      "alpha": 0.5,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "erect/lightAbove",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "lightAbove",
+      "position": [
+        804,
+        -117
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "startingAnimation": null,
+      "zIndex": 4500
+    },
+    {
+      "alpha": 0.45,
+      "angle": 350,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "Stage/spotlight",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "spotlight",
+      "position": [
+        658,
+        -24
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "startingAnimation": "",
+      "zIndex": 4501
+    }
+  ],
+  "characters": {
+    "bf": {
+      "alpha": 1,
+      "angle": 0,
+      "cameraOffsets": [
+        -143,
+        -40
+      ],
+      "position": [
+        1011.5,
+        909
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "zIndex": 300
+    },
+    "dad": {
+      "alpha": 0.5,
+      "angle": 0,
+      "cameraOffsets": [
+        270,
+        -100
+      ],
+      "position": [
+        124,
+        923
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "zIndex": 200
+    },
+    "gf": {
+      "alpha": 1,
+      "angle": 0,
+      "cameraOffsets": [
+        1,
+        1800
+      ],
+      "position": [
+        364.5,
+        -971
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "zIndex": 1
+    }
+  },
+  "cameraZoom": 0.85,
+  "directory": "week1"
+}

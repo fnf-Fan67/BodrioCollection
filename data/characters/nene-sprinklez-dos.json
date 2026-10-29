@@ -1,0 +1,176 @@
+{
+	"version": "1.0.0",
+	"renderType": "sparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 1,
+	"name": "Nene [Sprinklez] (la misma cosa)",
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"flipX": false,
+	"singTime": 8,
+	"startingAnimation": "idle",
+	"isPixel": false,
+	"assetPath": "characters/NENE2",
+	"healthIcon": {
+		"isPixel": false,
+		"offsets": [
+			0,
+			0
+		],
+		"scale": 1,
+		"id": "nene-sprinklez",
+		"flipX": false
+	},
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "idle",
+			"name": "idle",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				69,
+				-20
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "singLEFT",
+			"name": "singLEFT",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				0,
+				-125
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "singDOWN",
+			"name": "singDOWN",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				9,
+				45
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "singUP",
+			"name": "singUP",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				-9,
+				-50
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "singRIGHT",
+			"name": "singRIGHT",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "giggle",
+			"name": "risita",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				1,
+				-7
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "angry",
+			"name": "enojao",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				90,
+				-10
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "preattack",
+			"name": "fre-atak",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				60,
+				-15
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "attack",
+			"name": "atak",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				80,
+				5
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "hey",
+			"name": "ecsitasion",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				95,
+				15
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "dodge",
+			"name": "eskibe",
+			"looped": false,
+			"flipX": false
+		},
+		{
+			"offsets": [
+				135,
+				-55
+			],
+			"flipY": false,
+			"frameRate": 24,
+			"prefix": "hurt",
+			"name": "erida",
+			"looped": false,
+			"flipX": false
+		}
+	]
+}

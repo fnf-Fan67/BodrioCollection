@@ -1,0 +1,145 @@
+import flixel.FlxG;
+import funkin.Preferences;
+import funkin.FunkinMemory;
+import funkin.play.song.Song;
+import funkin.play.PlayState;
+import funkin.play.PlayStatePlaylist;
+import funkin.play.stage.Stage;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.character.CharacterType;
+import funkin.data.stage.StageRegistry;
+import funkin.ui.ScriptedMusicBeatSubState;
+import funkin.play.event.ScriptedSongEvent;
+// import flixel.util.FlxColor; // A dream wish for now
+
+class TutorialPicoMixSong extends Song {
+    function new() {
+        super('tutorial-pico-mix');
+    }
+
+    public function onCreate(event) {
+        super.onCreate(event);
+
+        var stage:Stage = StageRegistry.instance.fetchEntry('xd');
+        for (prop in stage._data.props) FunkinMemory.cacheTexture(Paths.image(prop.assetPath));
+        FunkinMemory.cacheTexture(Paths.image('characters/NENE2'));
+    }
+
+  override function handleEvent(data):Void {
+    if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+    if (PlayState.instance.isMinimalMode) return;
+
+    switch (color) {
+      case 0: // Black
+        color = 0xFF000000;
+      case 1: // Blue
+        color = 0xFF0000FF;
+      case 2: // Brown
+        color = 0xFFA52A2A;
+      case 3: // Cyan
+        color = 0xFF00FFFF;
+      case 4: // Gray
+        color = 0xFF808080;
+      case 5: // Green
+        color = 0xFF008000;
+      case 6: // Lime
+        color = 0xFF00FF00;
+      case 7: // Magenta
+        color = 0xFFFF00FF;
+      case 8: // Orange
+        color = 0xFFFFA500;
+      case 9: // Purple
+        color = 0xFF800080;
+      case 10: // Red
+        color = 0xFFFF0000;
+      case 11: // Transparent
+        color = 0x00000000;
+      case 12: // White
+        color = 0xFFFFFFFF;
+      case 13: // Yellow
+        color = 0xFFFFFF00;
+    }
+    }
+
+    public function onStepHit(event) {
+        super.onStepHit(event);
+
+        if (event.step == 314) {
+            buildNewStage('freestyle');
+        }
+        if (event.step == 320) {
+            buildNewStage('translucido');
+
+            FlxG.camera.flash(0xFF000000, 2);
+        }
+        if (event.step == 384) {
+            buildNewStage('xd');
+
+            FlxG.camera.flash(0xFFFF00FF, 3);
+        }
+    }
+
+    public function onSongRetry(event) {
+        super.onSongRetry(event);
+        playedCutscene = true;
+        if (PlayState.instance.currentStage.id != PlayState.instance.currentChart.stage)
+            buildNewStage('xd');
+    }
+
+    function buildNewStage(stageId:String) {
+        var bf:BaseCharacter = CharacterDataParser.fetchCharacter(PlayState.instance.currentStage.getBoyfriend()?.characterId);
+        var bfAnimation:String = PlayState.instance.currentStage.getBoyfriend().getCurrentAnimation();
+        var gf:BaseCharacter = CharacterDataParser.fetchCharacter(PlayState.instance.currentStage.getGirlfriend()?.characterId);
+        var dad:BaseCharacter = CharacterDataParser.fetchCharacter(stageId == 'freestyle' ? 'nene-sprinklez' : 'nene-sprinklez');
+        var dad:BaseCharacter = CharacterDataParser.fetchCharacter(stageId == 'translucido' ? 'nene-sprinklez' : 'nene-sprinklez');
+        var dad:BaseCharacter = CharacterDataParser.fetchCharacter(stageId == 'xd' ? 'nene-sprinklez' : 'nene-sprinklez');
+
+        // Spawn Stage
+        PlayState.instance.remove(PlayState.instance.currentStage);
+        PlayState.instance.currentStage.kill();
+        for (sprite in PlayState.instance.currentStage.group){
+            if (sprite != null)
+            {
+                sprite.kill();
+                PlayState.instance.currentStage.group.remove(sprite);
+            }
+        }
+
+        PlayState.instance.currentStage = null;
+        PlayState.instance.currentStage = StageRegistry.instance.fetchEntry(stageId);
+
+        if (PlayState.instance.currentStage != null) {
+            PlayState.instance.currentStage.revive();
+
+            PlayState.instance.currentStage.buildStage();
+            PlayState.instance.add(PlayState.instance.currentStage);
+        }
+
+        // Spawn Characters
+        if (bf != null) {
+            if (PlayState.instance.currentStage.getBoyfriend() != null) {
+                PlayState.instance.currentStage.getBoyfriend().destroy();
+            }
+            PlayState.instance.currentStage.addCharacter(bf, CharacterType.BF);
+            PlayState.instance.currentStage.getBoyfriend().playAnimation(bfAnimation, false, true);
+            trace(bfAnimation);
+        }
+
+        if (gf != null) {
+            if (PlayState.instance.currentStage.getGirlfriend() != null) {
+                PlayState.instance.currentStage.getGirlfriend().destroy();
+            }
+            PlayState.instance.currentStage.addCharacter(gf, CharacterType.GF);
+        }
+
+        if (dad != null) {
+            if (PlayState.instance.currentStage.getDad() != null) {
+                PlayState.instance.currentStage.getDad().destroy();
+            }
+            PlayState.instance.currentStage.addCharacter(dad, CharacterType.DAD);
+        }
+
+        PlayState.instance.currentStage.resetStage();
+        PlayState.instance.currentStage.refresh();
+    }
+}

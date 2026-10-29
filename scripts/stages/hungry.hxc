@@ -1,0 +1,31 @@
+import flixel.FlxG;
+import flixel.FlxSprite;
+import funkin.Paths;
+import funkin.Conductor;
+import openfl.Lib;
+import flixel.util.FlxSpriteUtil;
+import funkin.play.stage.Stage;
+import funkin.play.PlayState;
+import funkin.graphics.shaders.OverlayBlend;
+
+class HungryStage extends Stage {
+	function new() {
+		super('hungry');
+	}
+
+	var watermark:FlxSprite;
+	
+	function onCreate(event:ScriptEvent) {
+		super.onCreate(event);
+
+		watermark = new FlxSprite(475, 285).loadGraphic(Paths.image('counter-thing', 'shared'));
+		watermark.alpha = 2;
+		watermark.scrollFactor.set(1, 1);
+		watermark.visible = true;
+		PlayState.instance.currentStage.add(watermark);
+		PlayState.instance.currentStage.refresh();
+
+		watermark.cameras = [PlayState.instance.camHUD];
+	}
+}
+

@@ -1,0 +1,139 @@
+{
+  "version": "1.0.2",
+  "name": "Main Stage (medio)",
+  "props": [
+    {
+      "alpha": 1,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "stageback",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "stageBack",
+      "position": [
+        -600,
+        -200
+      ],
+      "scale": 1,
+      "scroll": [
+        0.9,
+        0.9
+      ],
+      "startingAnimation": null,
+      "zIndex": 10
+    },
+    {
+      "alpha": 1,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "stagefront",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "stageFront",
+      "position": [
+        -650,
+        600
+      ],
+      "scale": 1.1,
+      "scroll": [
+        0.9,
+        0.9
+      ],
+      "startingAnimation": null,
+      "zIndex": 20
+    },
+    {
+      "alpha": 1,
+      "angle": 0,
+      "animType": "sparrow",
+      "animations": [      ],
+      "assetPath": "stagecurtains",
+      "blend": "",
+      "color": "#FFFFFF",
+      "danceEvery": 0,
+      "flipX": false,
+      "flipY": false,
+      "isPixel": false,
+      "name": "stageCurtains",
+      "position": [
+        -500,
+        -300
+      ],
+      "scale": 0.9,
+      "scroll": [
+        1.3,
+        1.3
+      ],
+      "startingAnimation": null,
+      "zIndex": 30
+    }
+  ],
+  "characters": {
+    "bf": {
+      "alpha": 1,
+      "angle": 0,
+      "cameraOffsets": [
+        -100,
+        -100
+      ],
+      "position": [
+        686.5,
+        885
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "zIndex": 300
+    },
+    "dad": {
+      "alpha": 1,
+      "angle": 0,
+      "cameraOffsets": [
+        150,
+        -100
+      ],
+      "position": [
+        694,
+        885
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "zIndex": 200
+    },
+    "gf": {
+      "alpha": 1,
+      "angle": 0,
+      "cameraOffsets": [
+        0,
+        0
+      ],
+      "position": [
+        751.5,
+        787
+      ],
+      "scale": 1,
+      "scroll": [
+        1,
+        1
+      ],
+      "zIndex": 100
+    }
+  },
+  "cameraZoom": 1.1,
+  "directory": "week1"
+}

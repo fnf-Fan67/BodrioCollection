@@ -1,0 +1,49 @@
+import funkin.play.event.SongEvent;
+import funkin.play.PlayState;
+
+class ChangeCharacterBop extends SongEvent
+{
+	public function getEventSchema()
+	{
+		return [
+			{
+				name: "target",
+				title: "Character",
+				defaultValue: 2,
+				type: "enum",
+				keys: ["Player" => 0, "Opponent" => 1, "Speaker" => 2]
+			},
+			{
+				name: "danceEvery",
+				title: "New Bop Speed",
+				defaultValue: 2,
+				type: "float",
+				min: 0,
+				max: 8,
+				step: 1,
+				units: "beats"
+			}
+		];
+	}
+
+	public function handleEvent(data)
+	{
+		if (PlayState.instance == null) return;
+		if (PlayState.instance.minimalMode) return;
+
+		switch(data.value.target)
+		{
+			case 0:
+				if (PlayState.instance.currentStage.getBoyfriend() != null) PlayState.instance.currentStage.getBoyfriend().danceEvery = data.value.danceEvery;
+			case 1:
+				if (PlayState.instance.currentStage.getDad() != null) PlayState.instance.currentStage.getDad().danceEvery = data.value.danceEvery;
+			case 2:
+				if (PlayState.instance.currentStage.getGirlfriend() != null) PlayState.instance.currentStage.getGirlfriend().danceEvery = data.value.danceEvery;
+		}
+	}
+
+	public function getTitle():String
+	{
+		return "Change Character Bop";
+	}
+}

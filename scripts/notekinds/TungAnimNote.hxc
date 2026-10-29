@@ -1,0 +1,41 @@
+import funkin.play.notes.notekind.NoteKind;
+
+import funkin.audio.FunkinSound;
+import funkin.play.PlayState;
+import funkin.play.notes.NoteSplash;
+import funkin.play.notes.Strumline;
+import funkin.play.notes.notekind.NoteKindManager;
+import funkin.data.notestyle.NoteStyleRegistry;
+
+import flixel.util.FlxTimer;
+import funkin.modding.events.HitNoteScriptEvent;
+
+class TungAnimNote extends NoteKind
+{
+	public function new()
+	{
+		// noteKindId = "tung" — used in chart JSON
+		// displayName = "Tung Animation Note"
+		// spriteName = "funkin" — sprite set to use
+		// params = [] — no custom params yet
+		super("tung", "Tung Animation Note", "funkin", []);
+	}
+
+	// Event handler — not overridden, just declared
+	function onNoteHit(event:HitNoteScriptEvent)
+	{
+		// Only apply to player-side notes
+		if (!event.note.noteData.getMustHitNote()) return;
+
+		var player = PlayState.instance.currentStage.getBoyfriend();
+		var dir = event.note.noteData.getDirection();
+		var anims = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
+		var baseAnim = anims[dir];
+		var tungAnim = baseAnim + "-tung";
+
+		// No need for hasAnimation — just play it (character must have it defined)
+		new FlxTimer().start(0, function(_) {
+			player.playAnimation(tungAnim, true);
+		});
+	}
+}

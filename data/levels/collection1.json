@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "name": "Bodrio Collection 1",
+  "titleAsset": "storymenu/titles/collection1",
+  "props": [
+    {
+      "assetPath": "storymenu/props/bf",
+      "scale": 1.0,
+      "danceEvery": 2,
+      "offsets": [150, 80],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "idle0",
+          "frameRate": 24
+        },
+        {
+          "name": "confirm",
+          "prefix": "confirm0",
+          "frameRate": 24
+        }
+      ]
+    }
+  ],
+  "background": "#16FF01FF",
+  "songs": ["la-pajita", "todos-quieren-tung", "brainrot-rap", "rimas-arrimadas"]
+}

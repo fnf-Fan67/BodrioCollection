@@ -1,0 +1,19 @@
+{
+  "title": "Bodrio Collection",
+  "description": "una colección de las canciones de canciones totalmente aleatorias.",
+  "contributors": [
+    {
+      "name": "FNF Fan (tiktok)",
+      "role": "creador de la coleccion xd",
+      "url": "tiktok.com/@full.fnf"
+    },
+    {
+      "name": "FNF Fan (Youtube)",
+      "role": "charter",
+      "url": "www.youtube.com/@FNF_Fan4"
+    }
+  ],
+  "api_version": "0.8.3",
+  "mod_version": "4.0.0",
+  "license": "Apache-2.0"
+}

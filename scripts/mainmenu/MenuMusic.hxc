@@ -1,0 +1,45 @@
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
+import flixel.FlxG;
+import funkin.audio.FunkinSound;
+import funkin.Paths;
+import funkin.ui.title.TitleState;
+
+class MenuMusic extends Module
+{
+	var menuMusic:String = "freakyMenu";
+	var playingMenuMusic:Bool = false;
+
+	function new() {
+		super('MenuMusic', 11037); // I'm running out of funny numbers.
+	}
+
+	function onUpdate(event)
+	{
+		super.onUpdate(event);
+
+		if (Std.isOfType(FlxG.state, TitleState) || FlxG.sound.music == null) {}
+		else
+		{
+			if (FlxG.sound.music._label == Paths.music("freakyMenu/freakyMenu"))
+			{
+				if (!playingMenuMusic)
+				{
+					playingMenuMusic = true;
+					FunkinSound.playMusic(menuMusic,
+			        {
+			        	overrideExisting: true,
+			        	restartTrack: false,
+			        	// Continue playing this music between states, until a different music track gets played.
+			        	persist: true
+			        });
+			        FlxG.sound.music._label = Paths.music("freakyMenu/freakyMenu");
+			    }
+			}
+			else
+			{
+				playingMenuMusic = false;
+			}
+		}
+	}
+}

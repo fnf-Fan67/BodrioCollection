@@ -1,0 +1,297 @@
+{
+	"renderType": "multisparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"applyStageMatrix": false,
+	"startingAnimation": "idle",
+	"assetPath": "characters/BOYFRIEND",
+	"healthIcon": {
+		"offsets": [
+			0,
+			0
+		],
+		"isPixel": false,
+		"scale": 1,
+		"flipX": false,
+		"id": "bf"
+	},
+	"generatedBy": "Nova Character Editor v3.0.1",
+	"version": "1.0.0",
+	"danceEvery": 1,
+	"scale": 1,
+	"name": "BF alt-anim",
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"flipX": true,
+	"isPixel": false,
+	"singTime": 8,
+	"flipY": false,
+	"atlasSettings": {
+		"applyStageMatrix": false,
+		"useRenderTexture": false,
+		"filterQuality": 1,
+		"cacheOnLoad": false,
+		"swfMode": true
+	},
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"frameIndices": [],
+			"prefix": "BF idle dance",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "idle",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				10,
+				-6
+			],
+			"frameIndices": [],
+			"prefix": "BF NOTE LEFT0",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				8,
+				20
+			],
+			"frameIndices": [],
+			"prefix": "BF NOTE LEFT MISS",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFTmiss",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				-20,
+				-50
+			],
+			"frameIndices": [],
+			"prefix": "BF NOTE DOWN0",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				160,
+				175
+			],
+			"frameIndices": [],
+			"prefix": "tung",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN-tung",
+			"flipY": false,
+			"assetPath": "characters/Tuntunsahur",
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				-20,
+				-20
+			],
+			"frameIndices": [],
+			"prefix": "BF NOTE DOWN MISS",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWNmiss",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				-40,
+				30
+			],
+			"frameIndices": [],
+			"prefix": "BF NOTE UP0",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				160,
+				175
+			],
+			"frameIndices": [],
+			"prefix": "tung",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP-tung",
+			"flipY": false,
+			"assetPath": "characters/Tuntunsahur",
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				-39,
+				25
+			],
+			"frameIndices": [],
+			"prefix": "BF NOTE UP MISS",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "singUPmiss",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				-48,
+				-5
+			],
+			"frameIndices": [],
+			"prefix": "BF NOTE RIGHT0",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				-40,
+				23
+			],
+			"frameIndices": [],
+			"prefix": "BF NOTE RIGHT MISS",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHTmiss",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				21,
+				6
+			],
+			"frameIndices": [],
+			"prefix": "BF dies",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "firstDeath",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				21,
+				0
+			],
+			"frameIndices": [],
+			"prefix": "BF Dead Loop",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": true,
+			"name": "deathLoop",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				21,
+				64
+			],
+			"frameIndices": [],
+			"prefix": "BF Dead confirm",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "deathConfirm",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"frameIndices": [],
+			"prefix": "???",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "newAnimation",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				-25,
+				30
+			],
+			"frameIndices": [],
+			"prefix": "Cheer",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "cheer",
+			"flipY": false,
+			"assetPath": "characters/bfCheer",
+			"frameRate": 24
+		},
+		{
+			"offsets": [
+				2,
+				5
+			],
+			"frameIndices": [],
+			"prefix": "BF HEY!!",
+			"animType": "framelabel",
+			"flipX": false,
+			"looped": false,
+			"name": "hey",
+			"flipY": false,
+			"assetPath": null,
+			"frameRate": 24
+		}
+	]
+}

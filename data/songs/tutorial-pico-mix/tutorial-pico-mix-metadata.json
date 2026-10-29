@@ -1,0 +1,54 @@
+{
+ "version": "2.2.4",
+ "songName": "Tutorial (Pico Mix)",
+ "artist": "rixFX",
+ "charter": "FNF Fan",
+ "divisions": 96,
+ "looped": false,
+ "offsets": {
+  "instrumental": 0,
+  "altInstrumentals": {  },
+  "vocals": {  },
+  "altVocals": {  }
+ },
+ "playData": {
+  "songVariations": [],
+  "difficulties": [
+   "hard"
+  ],
+  "characters": {
+   "player": "pico-playable",
+   "girlfriend": "gf",
+   "opponent": "nene-sprinklez",
+   "instrumental": "",
+   "altInstrumentals": [],
+   "opponentVocals": [
+    "nene-sprinklez"
+   ],
+   "playerVocals": [
+    "pico-playable"
+   ]
+  },
+  "stage": "xd",
+  "noteStyle": "funkin",
+  "ratings": {
+   "easy": 7,
+   "normal": 0,
+   "hard": 7
+  },
+  "previewStart": 0,
+  "previewEnd": 0
+ },
+ "generatedBy": "Friday Night Funkin' - v0.8.1",
+ "timeFormat": "ms",
+ "timeChanges": [
+  {
+   "t": 0,
+   "b": 0,
+   "bpm": 110,
+   "n": 4,
+   "d": 4,
+   "bt": [4, 4, 4, 4]
+  }
+ ]
+}

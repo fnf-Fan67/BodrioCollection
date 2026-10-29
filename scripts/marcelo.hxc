@@ -1,0 +1,128 @@
+import flixel.FlxG;
+import funkin.play.song.Song;
+import funkin.play.PlayState;
+import funkin.Paths;
+import funkin.graphics.FunkinSprite;
+import funkin.graphics.video.FunkinVideoSprite;
+import Math;
+import openfl.utils.Assets;
+import StringTools;
+
+class marcelo extends Song {
+
+    function new() {
+        super('marcelo');
+    }
+
+    var replaceSickSprite = false;
+
+    var mainVidPath:String = Paths.videos("marcelo");
+    var mainVid:FunkinVideoSprite;
+
+    public override function onCreate(event:ScriptEvent):Void {
+        super.onCreate(event);
+
+        trace(mainVidPath);
+
+        hideOpponentStrumline();
+
+        blackScreen = new FunkinSprite(0, 0);
+        blackScreen.makeSolidColor(FlxG.width * 2, FlxG.height * 2, 0xFF000000);
+        blackScreen.updateHitbox();
+        blackScreen.scrollFactor.set();
+        blackScreen.cameras = [PlayState.instance.camHUD];
+        blackScreen.screenCenter();
+        blackScreen.alpha = 0;
+        blackScreen.zIndex = 198;
+        PlayState.instance.add(blackScreen);
+
+        mainVid = new FunkinVideoSprite(0, 0);
+        if (mainVid != null) {
+            mainVid.zIndex = 1000;
+            mainVid.cameras = [PlayState.instance.camHUD];
+            PlayState.instance.add(mainVid);
+            mainVid.bitmap.onFormatSetup.add(() -> {
+                mainVid.setGraphicSize(0,FlxG.height);
+                mainVid.updateHitbox();
+                mainVid.screenCenter();
+                mainVid.bitmap.volumeAdjust = 0;
+                mainVid.bitmap.volume = 0;
+            });
+            mainVid.bitmap.onEndReached.add(() -> {
+                mainVid.destroy();
+            });
+        }
+
+        PlayState.instance.currentStage.getBoyfriend().visible = false;
+        PlayState.instance.currentStage.getGirlfriend().visible = false;
+        PlayState.instance.currentStage.getDad().visible = false;
+        PlayState.instance.currentStage.getBoyfriend().alpha = 0;
+        PlayState.instance.currentStage.getGirlfriend().alpha = 0;
+        PlayState.instance.currentStage.getDad().alpha = 0;
+
+        PlayState.instance.refresh();
+    }
+
+    function hideOpponentStrumline() {
+        var opponentStrumline:FlxSprite = PlayState.instance.opponentStrumline;
+        if (opponentStrumline != null) {
+            for (arrow in opponentStrumline.members) {
+                arrow.visible = false;
+            }
+        }
+    }
+
+    public override function onStepHit(event:SongTimeScriptEvent):Void {
+        super.onStepHit(event);
+
+        if (event.step == 0) {
+            PlayState.instance.camHUD.flash(0xFF000000, 0.4);
+            if (mainVid != null && mainVid.load(mainVidPath)) {
+                mainVid.play();
+                mainVid.bitmap.time = PlayState.instance.startTimestamp;
+                mainVid.alpha = 1;
+            }
+        }
+    }
+
+    var tmr:Float = 0;
+
+    public override function onNoteHit(event:HitNoteScriptEvent):Void {
+        super.onNoteHit(event);
+        if (mainVid != null && mainVid.alpha == 0) {
+            mainVid.alpha = 1;
+            mainVid.bitmap.time = FlxG.sound.music.time;
+        }
+    }
+
+    public override function onUpdate(event:UpdateScriptEvent):Void {
+        super.onUpdate(event);
+
+        if (mainVid == null) {return;}
+
+        if (mainVid.alpha == 0) {
+            tmr += event.elapsed;
+            if (tmr >= 1) {
+                mainVid.alpha = 1;
+                PlayState.instance.vocals.playerVolume = 1;
+                mainVid.bitmap.time = FlxG.sound.music.time;
+            }
+        }
+    }
+
+    public override function onPause(event:PauseScriptEvent):Void {
+        super.onPause(event);
+        if (mainVid != null) {
+            mainVid.pause();
+        }
+    }
+
+    public override function onResume(event:PauseScriptEvent):Void {
+        super.onResume(event);
+        if (mainVid != null) {
+            mainVid.bitmap.time = FlxG.sound.music.time;
+            mainVid.resume();
+            mainVid.bitmap.volume = 0;
+        }
+    }
+}

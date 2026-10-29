@@ -1,0 +1,9 @@
+{
+  "timeFormat": "ms",
+  "artist": "MAFIA",
+  "songName": "JET SET!",
+  "timeChanges": [{ "d": 4, "n": 4, "t": 0, "bt": [4, 4, 4, 4], "bpm": 110 }],
+  "generatedBy": "Manual (by FNF Fan)",
+  "looped": true,
+  "version": "2.0.0"
+}

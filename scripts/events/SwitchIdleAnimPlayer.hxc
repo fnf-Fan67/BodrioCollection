@@ -1,0 +1,24 @@
+import funkin.play.event.SongEvent;
+import funkin.play.PlayState;
+
+class SwitchIdleAnim extends SongEvent {
+    function new() {
+        super('SwitchIdleAnim');
+    }
+
+    public override function handleEvent(data:SongEventData) {
+        PlayState.instance.currentStage.getPlayer().idleSuffix = "-" + data.getString('suffix');
+    }
+    
+    public override function getEventSchema() {
+        return ([{
+            name: 'suffix',
+            title: 'Idle Suffix',
+            type: 'string'
+        }]);
+    }
+
+    public override function getTitle():String {
+        return "Switch Idle Animation (Player)";
+    }
+}

@@ -1,0 +1,108 @@
+import flixel.FlxG;
+import funkin.Preferences;
+import funkin.FunkinMemory;
+import funkin.play.song.Song;
+import funkin.play.cutscene.VideoCutscene;
+import funkin.play.PlayState;
+import funkin.play.PlayStatePlaylist;
+import funkin.play.stage.Stage;
+import funkin.play.character.CharacterDataParser;
+import funkin.play.character.CharacterType;
+import funkin.data.stage.StageRegistry;
+import funkin.ui.ScriptedMusicBeatSubState;
+
+class TutorialPicoMixSkyLarxRetakeSong extends Song {
+    function new() {
+        super('tutorial-pico-mix-sky-larx-retake');
+    }
+
+    public function onCreate(event) {
+        super.onCreate(event);
+
+        var stage:Stage = StageRegistry.instance.fetchEntry('mainStageErect');
+        for (prop in stage._data.props) FunkinMemory.cacheTexture(Paths.image(prop.assetPath));
+        FunkinMemory.cacheTexture(Paths.image('characters/NENE2'));
+    }
+
+    public function onStepHit(event) {
+        super.onStepHit(event);
+
+        if (event.step == 267) {
+            buildNewStage('freestyle');
+        }
+        if (event.step == 274) {
+            buildNewStage('translucido');
+            
+            FlxG.camera.flash(0x000000, 2);
+        }
+        if (event.step == 347) {
+            buildNewStage('mainStageErect2');
+
+            FlxG.camera.flash(0xFFFFFFFF, 3);
+        }
+    }
+
+    public function onSongRetry(event) {
+        super.onSongRetry(event);
+        playedCutscene = true;
+        if (PlayState.instance.currentStage.id != PlayState.instance.currentChart.stage)
+            buildNewStage('mainStageErect');
+    }
+
+    function buildNewStage(stageId:String) {
+        var bf:BaseCharacter = CharacterDataParser.fetchCharacter(PlayState.instance.currentStage.getBoyfriend()?.characterId);
+        var bfAnimation:String = PlayState.instance.currentStage.getBoyfriend().getCurrentAnimation();
+        var gf:BaseCharacter = CharacterDataParser.fetchCharacter(PlayState.instance.currentStage.getGirlfriend()?.characterId);
+        var dad:BaseCharacter = CharacterDataParser.fetchCharacter(stageId == 'freestyle' ? 'nene-sprinklez-dos' : 'nene-sprinklez');
+        var dad:BaseCharacter = CharacterDataParser.fetchCharacter(stageId == 'translucido' ? 'nene-sprinklez-dos' : 'nene-sprinklez');
+        var dad:BaseCharacter = CharacterDataParser.fetchCharacter(stageId == 'mainStageErect2' ? 'nene-sprinklez-dos' : 'nene-sprinklez');
+
+        // Spawn Stage
+        PlayState.instance.remove(PlayState.instance.currentStage);
+        PlayState.instance.currentStage.kill();
+        for (sprite in PlayState.instance.currentStage.group){
+            if (sprite != null)
+            {
+                sprite.kill();
+                PlayState.instance.currentStage.group.remove(sprite);
+            }
+        }
+
+        PlayState.instance.currentStage = null;
+        PlayState.instance.currentStage = StageRegistry.instance.fetchEntry(stageId);
+
+        if (PlayState.instance.currentStage != null) {
+            PlayState.instance.currentStage.revive();
+
+            PlayState.instance.currentStage.buildStage();
+            PlayState.instance.add(PlayState.instance.currentStage);
+        }
+
+        // Spawn Characters
+        if (bf != null) {
+            if (PlayState.instance.currentStage.getBoyfriend() != null) {
+                PlayState.instance.currentStage.getBoyfriend().destroy();
+            }
+            PlayState.instance.currentStage.addCharacter(bf, CharacterType.BF);
+            PlayState.instance.currentStage.getBoyfriend().playAnimation(bfAnimation, false, true);
+            trace(bfAnimation);
+        }
+
+        if (gf != null) {
+            if (PlayState.instance.currentStage.getGirlfriend() != null) {
+                PlayState.instance.currentStage.getGirlfriend().destroy();
+            }
+            PlayState.instance.currentStage.addCharacter(gf, CharacterType.GF);
+        }
+
+        if (dad != null) {
+            if (PlayState.instance.currentStage.getDad() != null) {
+                PlayState.instance.currentStage.getDad().destroy();
+            }
+            PlayState.instance.currentStage.addCharacter(dad, CharacterType.DAD);
+        }
+
+        PlayState.instance.currentStage.resetStage();
+        PlayState.instance.currentStage.refresh();
+    }
+}

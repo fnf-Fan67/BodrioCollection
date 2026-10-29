@@ -1,0 +1,102 @@
+{
+ "version": "2.2.4",
+ "songName": "Tutorial (Pico-Mix) SKY LARX Retake",
+ "artist": "SKY LARX",
+ "charter": "FNF Fan",
+ "divisions": 96,
+ "looped": false,
+ "offsets": {
+  "instrumental": 0,
+  "altInstrumentals": {  },
+  "vocals": {
+   "nene-sprinklez": 0
+  },
+  "altVocals": {  }
+ },
+ "playData": {
+  "songVariations": [],
+  "difficulties": [
+   "hard"
+  ],
+  "characters": {
+   "player": "pico-playable",
+   "girlfriend": "no-opp",
+   "opponent": "nene-sprinklez",
+   "instrumental": "",
+   "altInstrumentals": [],
+   "opponentVocals": [
+    "nene-sprinklez"
+   ],
+   "playerVocals": [
+    "pico-playable"
+   ]
+  },
+  "stage": "mainStageErect",
+  "noteStyle": "funkin",
+  "ratings": {
+   "hard": 0
+  },
+  "previewStart": 0,
+  "previewEnd": 0
+ },
+ "generatedBy": "Friday Night Funkin' - v0.8.1",
+ "timeFormat": "ms",
+ "timeChanges": [
+  {
+   "t": 0,
+   "b": 0,
+   "bpm": 140,
+   "n": 4,
+   "d": 4,
+   "bt": [4, 4, 4, 4]
+  },
+  {
+   "t": 5883,
+   "b": 13.727,
+   "bpm": 100,
+   "n": 4,
+   "d": 4,
+   "bt": [4, 4, 4, 4]
+  },
+  {
+   "t": 8140,
+   "b": 17.4887,
+   "bpm": 111,
+   "n": 4,
+   "d": 4,
+   "bt": [4, 4, 4, 4]
+  },
+  {
+   "t": 24563.0001,
+   "b": 47.8713,
+   "bpm": 130,
+   "n": 4,
+   "d": 4,
+   "bt": [4, 4, 4, 4]
+  },
+  {
+   "t": 34288,
+   "b": 68.9421,
+   "bpm": 126,
+   "n": 4,
+   "d": 4,
+   "bt": [4, 4, 4, 4]
+  },
+  {
+   "t": 60352,
+   "b": 123.6765,
+   "bpm": 118,
+   "n": 4,
+   "d": 4,
+   "bt": [4, 4, 4, 4]
+  },
+  {
+   "t": 70658.0001,
+   "b": 143.945,
+   "bpm": 114,
+   "n": 4,
+   "d": 4,
+   "bt": [4, 4, 4, 4]
+  }
+ ]
+}

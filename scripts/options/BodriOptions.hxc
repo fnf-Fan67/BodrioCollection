@@ -1,0 +1,165 @@
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
+import funkin.ui.options.OptionsState;
+import flixel.util.FlxSave;
+import openfl.utils.Assets;
+import Std;
+import funkin.save.Save;
+import flixel.FlxG;
+import funkin.ui.options.PreferencesMenu;
+import funkin.ui.options.items.EnumPreferenceItem;
+import funkin.ui.options.items.NumberPreferenceItem;
+import funkin.util.Constants;
+import funkin.audio.FunkinSound;
+
+import funkin.Paths;
+
+import StringTools;
+
+class preferencesptions extends Module {
+	var savedOptions:Dynamic = {
+		menuMusic: "freakyMenu",
+	};
+
+	function new() {
+		super('preferences-options', 1985); // HEY THERE CHAMP.
+	}
+
+	function onStateChangeBegin(event)
+	{
+		super.onStateChangeBegin(event);
+		saveSetUp(savedOptions);
+		bindData();
+	}
+
+	function saveSetUp(saveFile:Dynamic):Void
+	{
+		if (Save.instance.modOptions.get("preferences Collection") == null)
+		{
+			Save.instance.modOptions.set("preferences Collection", savedOptions);
+			Save.instance.flush();
+		}
+		else
+		{
+			savedOptions = Save.instance.modOptions.get("preferences Collection");
+		}
+	}
+
+	function onUpdate(event)
+	{
+		super.onUpdate(event);
+		if (!Std.isOfType(FlxG.state, OptionsState)) return;
+		var preferences = FlxG.state.optionsCodex.pages["preferences"];
+		if (preferences == null) return;
+		for (item in preferences.items.members)
+		{
+			if (StringTools.startsWith(item.label.text, "Menu Music"))
+			{
+				item.lefthandText.text = "";
+				item.x = (preferences.items.selectedItem == item ? 75 : 45);
+			}
+		}
+	}
+
+	function bindData():Void
+	{
+		ModuleHandler.getModule("MenuMusic").scriptSet("menuMusic", savedOptions.menuMusic);
+		Save.instance.modOptions.set("preferences Collection", savedOptions);
+		Save.instance.flush();
+	}
+
+	function onStateChangeEnd(event):Void
+	{
+		super.onStateChangeEnd(event);
+		if (!Std.isOfType(event.targetState, OptionsState)) return;
+		var state = event.targetState.optionsCodex;
+		var preferences = event.targetState.optionsCodex.pages['preferences'];
+		var options = event.targetState.optionsCodex.pages.get('options');
+		var exit = options.items.members[options.items.length - 1];
+    	exit.y += 100;
+    	options.items.remove(exit);
+
+    	var item = options.items.createItem(0, exit.y - 100, "preferences Collection Options", "bold", function(){
+        options.onSwitch.dispatch('preferences');
+    	});
+    	item.x = (FlxG.width - item.width) / 2;
+    	options.items.add(exit);
+
+    	var preferences = event.targetState.optionsCodex.addPage('preferences', new PreferencesMenu());
+    	preferences.onExit.add(function(){
+        	state.switchPage('options');
+    	});
+    	for(shit in preferences.items){
+        	shit.destroy();
+      	}
+      	for(shit in preferences.preferenceItems){
+    	    shit.destroy();
+      	}
+
+      	preferences.items.clear();
+      	preferences.preferenceItems.clear();
+
+      	preferences.preferenceDesc = [];
+
+
+		createHeader(preferences, "Menu preferences", "Opciones Del Menu (Beta)");
+
+		preferences.createPrefItemEnum("Musica Bodria", "Cambia La Cancion Bodria Del Menu.", [
+			"freakyMenu" => "C Mamut",
+			"Freaky Menu (Pou Edition)" => "Pou Music",
+			"AlRojo Vivo" => "Ayer Me Llamo Una Niña",
+			"Balls" => "Balls In My Ass",
+			"diddy Blud" => "What Is The Diddy Blud Doing",
+			"EFN" => "Niggers What?",
+			"Piter G" => "Justo Las 12 De La Noche",
+			"Atrevete Salte Del Closet" => "Destapate Quitate El Esmalte"
+			], (value) -> {
+			FunkinSound.playMusic(value,
+	        {
+	        	overrideExisting: true,
+	        	restartTrack: (value != savedOptions.menuMusic),
+	        	// Continue playing this music between states, until a different music track gets played.
+	        	persist: true
+	        });
+			savedOptions.menuMusic = value;
+			bindData();
+	        FlxG.sound.music._label = Paths.music("freakyMenu/freakyMenu");
+		}, savedOptions.menuMusic);
+
+		// Enum options are almost always in some proprietary order. FUUUCK I hate it!!!
+		preferences.items.members[preferences.items.length - 1].keys = [
+			"freakyMenu",
+			"Freaky Menu (Pou Edition)",
+			"Al Rojo Vivo",
+			"Balls",
+			"Diddy Blud",
+			"EFN",
+			"Piter G",
+			"Atrevete Salte Del Closet"
+		];
+
+		preferences.items.members[preferences.items.length - 1].index = preferences.items.members[preferences.items.length - 1].keys.indexOf(preferences.items.members[preferences.items.length - 1].currentKey);
+
+		if (!FlxG.onMobile)
+
+		preferences.createPrefDescription();
+	}
+
+	function createHeader(menu, title, desc)
+	{
+		menu.createPrefItemEnum(title, desc, ["" => ""], (value) -> {
+      		return;
+      	}, "");
+	}
+
+	function fixItemNames(options, num)
+	{
+		for (item in options.items.members)
+		{
+			if (Std.isOfType(item, EnumPreferenceItem) && StringTools.startsWith(item.label.text, "Menu Music"))
+			{
+				item.label.text = "Menu Music: " + item.map.get(savedOptions.menuMusic);
+			}
+		}
+	}
+}
